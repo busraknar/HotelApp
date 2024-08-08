@@ -18,5 +18,6 @@ namespace EntityLayer.Entities
         public DateTime CheckOutDate { get; set; }
         public virtual Customer? Customer { get; set; }
         public virtual Room? Room { get; set; }
+        public virtual List<Payment>? Payments { get; set; }
     }
 }
