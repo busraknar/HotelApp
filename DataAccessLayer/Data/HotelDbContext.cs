@@ -5,7 +5,7 @@ namespace DataAccessLayer.Data
 {
     public class HotelDbContext : DbContext
     {
-        protected HotelDbContext(DbContextOptions<HotelDbContext> options) : base(options)
+        public HotelDbContext(DbContextOptions<HotelDbContext> options) : base(options)
         {
 
         }
