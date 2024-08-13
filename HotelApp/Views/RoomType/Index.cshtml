@@ -1,4 +1,4 @@
-﻿
+﻿@model List<EntityLayer.Entities.RoomType>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
@@ -6,3 +6,8 @@
 
 <h1>Index</h1>
 
+@foreach(var item in Model)
+{
+    <h1>@item.RoomPrice</h1>
+    <h2>@item.RoomName</h2>
+}
