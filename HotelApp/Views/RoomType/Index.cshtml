@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
-
+<h1 class="bg-primary my-5 w-100 text-center">Oda Tipleri</h1>
+<a class="btn btn-success my-3" href="/RoomType/Create">Yeni</a>
 <table class="table table-striped">
     <tr>
         <td>Oda Adı</td>
@@ -12,13 +13,15 @@
         <td>Düzelt</td>
         <td>Sil</td>
     </tr>
+
+  
     @foreach(var item in Model)
     {
         <tr>
             <td>@item.RoomName</td>
             <td>@item.RoomPrice</td>
-            <td><a href="/RoomType/@item.RoomTypeId">Düzelt</a></td>
-            <td><a href="/RoomType/@item.RoomTypeId">Sil</a></td>
+            <td><a class="btn btn-warning" href="/RoomType/Edit/@item.RoomTypeId">Düzelt</a></td>
+            <td><a class="btn btn-danger" href="/RoomType/Delete/@item.RoomTypeId">Sil</a></td>
         </tr>
     }
 
