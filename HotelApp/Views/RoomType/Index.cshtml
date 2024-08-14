@@ -4,10 +4,23 @@
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
-<h1>Index</h1>
 
-@foreach(var item in Model)
-{
-    <h1>@item.RoomPrice</h1>
-    <h2>@item.RoomName</h2>
-}
+<table class="table table-striped">
+    <tr>
+        <td>Oda Adı</td>
+        <td>Oda Fiyatı</td>
+        <td>Düzelt</td>
+        <td>Sil</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.RoomName</td>
+            <td>@item.RoomPrice</td>
+            <td><a href="/RoomType/@item.RoomTypeId">Düzelt</a></td>
+            <td><a href="/RoomType/@item.RoomTypeId">Sil</a></td>
+        </tr>
+    }
+
+} 
+</table>
