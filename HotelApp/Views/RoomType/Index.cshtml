@@ -5,7 +5,7 @@
 }
 
 <h1 class="bg-primary my-5 w-100 text-center">Oda Tipleri</h1>
-<a class="btn btn-success my-3" href="/RoomType/Create">Yeni</a>
+<a class="btn btn-success my-3" href="/RoomType/Create"><i class="bi bi-building-fill-add"></i>Yeni</a>
 <table class="table table-striped">
     <tr>
         <td>Oda Adı</td>
@@ -20,8 +20,8 @@
         <tr>
             <td>@item.RoomName</td>
             <td>@item.RoomPrice</td>
-            <td><a class="btn btn-warning" href="/RoomType/Edit/@item.RoomTypeId">Düzelt</a></td>
-            <td><a class="btn btn-danger" href="/RoomType/Delete/@item.RoomTypeId">Sil</a></td>
+            <td><a class="btn btn-warning" href="/RoomType/Edit/@item.RoomTypeId"><i class="bi bi-building-fill-up"></i>Düzelt</a></td>
+            <td><a class="btn btn-danger" href="/RoomType/Delete/@item.RoomTypeId"><i class="bi bi-building-fill-x"></i>Sil</a></td>
         </tr>
     }
 
