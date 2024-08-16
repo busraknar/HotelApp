@@ -17,5 +17,10 @@ namespace HotelApp.Controllers
             var RoomTypeList = _context.RoomTypes.ToList();
             return View(RoomTypeList);
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
