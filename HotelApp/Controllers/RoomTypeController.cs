@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Data;
+using EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelApp.Controllers
@@ -21,6 +22,15 @@ namespace HotelApp.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+
+        public IActionResult Create(RoomType gelen)
+        {
+            _context.RoomTypes.Add(gelen);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
