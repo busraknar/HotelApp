@@ -13,7 +13,8 @@ namespace EntityLayer.Entities
 
         [Display(Name = "Oda Fiyatı")]
         [Required(ErrorMessage = "Oda fiyatını boş bırakamazsınız!")]
-        public double RoomPrice { get; set; }
+        [Range(0, double.MaxValue)]
+        public double? RoomPrice { get; set; }
         public virtual List<Room>? Rooms { get; set; }
 
     }

@@ -28,9 +28,20 @@ namespace HotelApp.Controllers
 
         public IActionResult Create(RoomType gelen)
         {
-            _context.RoomTypes.Add(gelen);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                _context.RoomTypes.Add(gelen);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+        [HttpGet]
+
+        public IActionResult Edit(int id)
+        {
+            var tek = _context.RoomTypes.Find(id);
+            return View(tek);
         }
     }
 }
