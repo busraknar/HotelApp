@@ -40,8 +40,29 @@ namespace HotelApp.Controllers
 
         public IActionResult Edit(int id)
         {
-            var tek = _context.RoomTypes.Find(id);
-            return View(tek);
+            RoomType corrected = _context.RoomTypes.Where
+               (u => u.RoomTypeId == id).FirstOrDefault();
+
+            // var tek = _context.RoomTypes.Find(id);
+
+            if (corrected == null)
+            {
+                return NotFound();
+            }
+            return View(corrected);
+        }
+
+        [HttpPost]
+
+        public IActionResult Edit(RoomType gelen)
+        {
+            if (ModelState.IsValid && gelen.RoomTypeId > 0)
+            {
+                _context.RoomTypes.Update(gelen);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
         }
     }
 }
