@@ -37,7 +37,6 @@ namespace HotelApp.Controllers
             return View();
         }
         [HttpGet]
-
         public IActionResult Edit(int id)
         {
             RoomType corrected = _context.RoomTypes.Where
@@ -64,5 +63,19 @@ namespace HotelApp.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            RoomType corrected = _context.RoomTypes.Where
+               (u => u.RoomTypeId == id).FirstOrDefault();
+
+            if (corrected == null)
+            {
+                return NotFound();
+            }
+            return View(corrected);
+        }
+
     }
 }
