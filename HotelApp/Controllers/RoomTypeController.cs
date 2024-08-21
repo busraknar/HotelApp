@@ -67,7 +67,7 @@ namespace HotelApp.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            RoomType corrected = _context.RoomTypes.Where
+            RoomType? corrected = _context.RoomTypes.Where
                (u => u.RoomTypeId == id).FirstOrDefault();
 
             if (corrected == null)
@@ -77,5 +77,20 @@ namespace HotelApp.Controllers
             return View(corrected);
         }
 
+        [HttpPost]
+
+        public IActionResult Delete(RoomType gelen)
+        {
+            RoomType? deleted = _context.RoomTypes.Where
+            (u => u.RoomTypeId == gelen.RoomTypeId).FirstOrDefault();
+
+            if (deleted != null)
+            {
+                _context.RoomTypes.Remove(deleted);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
     }
 }
